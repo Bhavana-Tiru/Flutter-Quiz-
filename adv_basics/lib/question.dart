@@ -19,7 +19,7 @@ class _Question extends State<Question> {
   var currentQuestionIndex = 0;
 
   void answerquestion(String selectedAnswer) {
-    widget.onSelectedAnswer('...');
+    widget.onSelectedAnswer(selectedAnswer);
     //it gives the acess to top widget class and its properties
     //currentQuestionIndex = currentQuestionIndex + 1;
     //currentQuestionIndex += 1;
@@ -53,20 +53,20 @@ class _Question extends State<Question> {
             const SizedBox(
               height: 30,
             ),
-            ...currentQuestion.getShuffledAnswers().map((iteam) {
+            ...currentQuestion.getShuffledAnswers().map((answer) {
               //answers displays in shuffle order
               //...(spread operator):- numbers were added as multiple,individual values to the list.
               return AnswerButton(
-                  answerText: iteam,
+                  answerText: answer,
                   onTap: () {
-                    answerquestion(iteam);
+                    answerquestion(answer);
                   });
             })
 
             //to display the answers in order without shuffling:
-            // ...currentQuestion.answers.map((iteam) {
+            // ...currentQuestion.answers.map((answer) {
             //   //...(spread operator):- numbers were added as multiple,individual values to the list.
-            //   return AnswerButton(answerText: iteam, onTap: () {});
+            //   return AnswerButton(answerText: answer, onTap: () {});
             // })
           ],
         ),
